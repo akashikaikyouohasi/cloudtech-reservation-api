@@ -26,11 +26,14 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker push $REPOSITORY_URI:latest
+      #- docker push $REPOSITORY_URI:latest # latestタグは使わない
       - docker push ${REPOSITORY_URI}:${IMAGE_TAG}
       - echo Writing image definitions file...
       - printf '[{"name":"%s","imageUri":"%s"}]' $ECR_REPOSITORY_NAME $REPOSITORY_URI:$IMAGE_TAG > imagedefinitions.json
 artifacts:
   files:
-    - imagedefinitions.json
+    - imageDetail.json
+    - taskdef.json
+    - appspec.yaml
+
 
