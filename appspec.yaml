@@ -7,3 +7,4 @@ Resources:
       LoadBalancerInfo:
         ContainerName: api
         ContainerPort: 80
+
